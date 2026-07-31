@@ -26,21 +26,15 @@ fun gradingStudents(grades: Array<Int>): Array<Int> {
     val result = mutableListOf<Int>()
 
     for (grade in grades) {
-        val diff = 5 - grade % 5
+        val diff = (5 - grade % 5)
         result.add(if (grade >= 38 && diff < 3) grade + diff else grade)
     }
 
     return result.toTypedArray()
 }
 
-fun main(args: Array<String>) {
-    val gradesCount = readLine()!!.trim().toInt()
-
-    val grades = Array<Int>(gradesCount, { 0 })
-    for (i in 0 until gradesCount) {
-        val gradesItem = readLine()!!.trim().toInt()
-        grades[i] = gradesItem
-    }
+fun main() {
+    val grades = arrayOf(72, 68, 38, 33)
 
     val result = gradingStudents(grades)
 
